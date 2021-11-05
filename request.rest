@@ -8,8 +8,8 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "username": "pen",
-    "password": "ken"
+    "username": "admin",
+    "password": "admin"
 }
 
 ###
@@ -26,7 +26,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:4000/stores/userstores
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBlbiIsInBhc3N3b3JkIjoia2VuIiwiaWF0IjoxNjM1OTg1MTE2fQ.icT4vLAAv_fWv2v5F4ycJao_yawOY3fdjKpWgDZm83M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjAyMDI0Nn0.4lS2LkRAtRDj__o6vRWwVbYvIV5M6Yqj2zMtCg5EFaE
 
 ###
 
@@ -36,4 +36,52 @@ Content-Type: application/json
 
 {
     "store_id": 3
+}
+
+###
+GET http://localhost:4000/products/findstoreproduct?barcode=6009510808728&storeId=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjExMTE3OH0.quOww5msWmSXMYpcflQSmpk7ftXkoiDaItpGXW-nxYw
+###
+POST http://localhost:4000/products/addstoreproduct
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjEwOTE4Nn0.STqkbOVbPLQ7TMcfrkuqbEQMzP0RSEiEuiWfkYsyqEY
+Content-Type: application/json
+
+{
+    "product": {
+        "store_id": 1,
+        "barcode": 6009510808728,
+        "price": 26.90
+    }
+}
+
+###
+POST http://localhost:4000/products/addproduct
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjEwOTE4Nn0.STqkbOVbPLQ7TMcfrkuqbEQMzP0RSEiEuiWfkYsyqEY
+Content-Type: application/json
+
+{
+    "product": {
+        "store_id": 2,
+        "barcode": 600967881179,
+        "name": "popcorn spice",
+        "description": "original butter",
+        "price": 14.99
+    }
+}
+
+###
+GET http://localhost:4000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjExMDU1M30.9242JaeWb6k53Ahu0VhTJoDELN5E3V3iQeDXqiVAAa0
+
+###
+PATCH http://localhost:4000/products/updateprice
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjExMTE3OH0.quOww5msWmSXMYpcflQSmpk7ftXkoiDaItpGXW-nxYw
+Content-Type: application/json
+
+{
+    "product": {
+        "store_id": 1,
+        "barcode": 6009510808728,
+        "price": 15.99
+    }
 }

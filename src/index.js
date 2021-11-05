@@ -7,6 +7,7 @@ const app = express();
 const usersRoutes = require('./routes/users');
 const userAuth = require('./routes/auth');
 const Stores = require('./routes/stores');
+const Products = require('./routes/products');
 
 const jwt = require("jsonwebtoken");
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use('/users', usersRoutes);
 app.use('/auth', userAuth);
 app.use('/stores', authenticateToken, Stores);
+app.use('/products', authenticateToken, Products);
 
 app.get("/", (req, res) =>{
     res.send("hello world!");

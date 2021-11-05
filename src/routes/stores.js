@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-const User = require('../controllers/stores');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const Store = require("../controllers/stores");
