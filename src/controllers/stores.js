@@ -11,7 +11,7 @@ class Store {
 
     async getUsersStores(user_id) {
 
-        let results = await db.query(`SELECT store_id from "User_Store" WHERE user_id=$1`, [user_id,]).catch(console.log);
+        let results = await db.query(`SELECT store_id, is_primary_store from "User_Store" WHERE user_id=$1`, [user_id,]).catch(console.log);
         return results.rows;
     }
 

@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
     res.send(products)
 });
 
-router.get('/storeproducts', async (req, res) => {
-    let store_id = req.body.store_id;
-
+router.get('/storeproducts/:storeid', async (req, res) => {
+    let store_id = req.params.storeid;
+    console.log("the store id")
     let products = await new Product().getStoreProducts(store_id);
 
     res.send(products);
@@ -26,6 +26,8 @@ router.get('/storeproducts', async (req, res) => {
 router.post('/addproduct', async (req, res) => {
 
     let product = req.body.product;
+
+    console.log("the sent message", product)
 
     let response = await new Product().addProduct(product);
 
@@ -45,8 +47,15 @@ router.get('/findproduct/:barcode', async (req, res) => {
 
     let barcode = req.params.barcode;
     let response = await new Product().findProduct(barcode);
-
-    res.send(response);
+    
+    // if(!response) {
+    //     res.send("product does not exist")
+    // } else {
+    
+    // res.send(response);
+    // }
+    res.send(response)
+    
 });
 
 router.get('/findstoreproduct', async (req, res) => {

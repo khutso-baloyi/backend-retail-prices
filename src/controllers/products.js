@@ -34,20 +34,20 @@ class Product {
         console.log("the barcode", barcode)
         let product = await db.query(`SELECT * from "Product" WHERE barcode=$1`, [barcode,]).catch(console.log);
 
-        return product.rows;
+        return product.rows[0];
     }
 
     async findStoreProduct(store_id, barcode) {
         let storeProduct = await db.query(`SELECT * from "Store_Product" WHERE store_id=$1 AND barcode=$2`, [store_id, barcode]).catch(console.log);
 
-        return storeProduct.rows;
+        return storeProduct.rows[0];
     }
 
     async updateProductPrice({store_id, barcode, price}) {
         let prev_product = await this.findStoreProduct(store_id, barcode);
-        console.log("prev_price", prev_product[0].price)
+        console.log("prev_price", prev_product.price)
         console.log("the current price", price);
-        let storeProduct = await db.query(`UPDATE "Store_Product" SET price=$1, prev_price=$2 WHERE store_id=$3 AND barcode=$4`, [price, prev_product[0].price, store_id, barcode]).catch(console.log);
+        let storeProduct = await db.query(`UPDATE "Store_Product" SET price=$1, prev_price=$2 WHERE store_id=$3 AND barcode=$4`, [price, prev_product.price, store_id, barcode]).catch(console.log);
 
         return storeProduct.rows;
     }

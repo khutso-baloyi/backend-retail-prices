@@ -1,4 +1,7 @@
 
+GET http://localhost:4000
+
+###
  GET http://localhost:4000/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNTk3NTA1OH0.SA5RJg4MDZgZUglwNRWnGOK-oFSiGj8dgEkBNiO8Br8
 # GET http://localhost:4000
@@ -8,8 +11,8 @@ POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin"
+    "username": "khutso",
+    "password": "khutsobaloyi"
 }
 
 ###
@@ -26,8 +29,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:4000/stores/userstores
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjAyMDI0Nn0.4lS2LkRAtRDj__o6vRWwVbYvIV5M6Yqj2zMtCg5EFaE
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodXRzbyIsInBhc3N3b3JkIjoia2h1dHNvYmFsb3lpIiwiaWF0IjoxNjM2MzY1NzU2fQ.aIHFjJ54v5wBhpH8Z2Vu2b0RT0cU4tv-PHH5TPY9mCE
 ###
 
 POST http://localhost:4000/stores/addstore
@@ -39,7 +41,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4000/products/findstoreproduct?barcode=6009510808728&storeId=1
+GET http://localhost:4000/products/findproduct/6001190111648
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodXRzbyIsInBhc3N3b3JkIjoia2h1dHNvYmFsb3lpIiwiaWF0IjoxNjM3NzU5NDk5fQ.12X8FOM4H15n5u473N_E_Tna7l7uT5ShLG14ABdX6_Y
+###
+GET http://localhost:4000/products/findstoreproduct?barcode=6001190111648&storeId=1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImlhdCI6MTYzNjExMTE3OH0.quOww5msWmSXMYpcflQSmpk7ftXkoiDaItpGXW-nxYw
 ###
 POST http://localhost:4000/products/addstoreproduct
@@ -53,6 +58,10 @@ Content-Type: application/json
         "price": 26.90
     }
 }
+
+###
+GET http://localhost:4000/products/storeproducts/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodXRzbyIsInBhc3N3b3JkIjoia2h1dHNvYmFsb3lpIiwiaWF0IjoxNjM2MzY4NTYyfQ.zG_P8szi_m0iGEMK2OQnjfHlmRj3B-0EsyIo8dpdbcw
 
 ###
 POST http://localhost:4000/products/addproduct
